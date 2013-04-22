@@ -24,4 +24,10 @@ function DOM () {
             throw "Error Code: " + DOMException.NOT_FOUND_ERR;
         }
     }
+
+    self.removeChildren = function (element) {
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+    }
 }
