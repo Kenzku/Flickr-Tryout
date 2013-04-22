@@ -1,0 +1,55 @@
+#sidebar {
+    background: #EEE;
+    box-shadow: 0 0 20px #ccc;
+    -webkit-box-shadow: 0 0 20px #ccc;
+    -moz-box-shadow: 0 0 20px #ccc;
+    overflow-y: auto;
+    padding: 0 30px 30px 30px;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid #BBB;
+}
+
+.urlLink {
+    border-radius: 7px;
+    background-color: #3fab47;
+    padding: 2px 5px 2px 5px;
+    display: block;
+    box-shadow: 0 0 5px #a8a8a8;
+    font-size: 80%;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 150%;
+}
+li {
+    vertical-align: top;
+    margin: 0 0 6px;
+    display: block;
+}
+a {
+    text-decoration: none;
+    border: 0;
+    color: #000;
+}
+
+#controlPenal {
+    top: 0;
+    left: 0;
+    background-color: #82CAFA;
+    color: #fff;
+    box-shadow: 0 0 7px #a8a8a8;
+    text-shadow: #000 0 0 0.2em;
+    position: fixed;
+    width: 15px;
+}
+
+#howTo {
+    margin-top: 4px;
+}
