@@ -1,0 +1,4 @@
+Flickr-Tryout
+=============
+
+Have a search interface where someone can enter a keyword (or more, you’re in charge) A results view where photo’s that match the keyword appear Click through to the detail page where the selected photo shows The detail page has ways to transform the image, e.g. Paint on the image Flip the image Change saturation  Implement an undo / redo stack when transforming the image  Present the user with a way to download the edited picture  Implementation must be done in client side HTML/CSS/JS. Test only on latest Chrome No full blown library like jQuery, Backbone or Angular Use a small library to e.g. handle JSONP
