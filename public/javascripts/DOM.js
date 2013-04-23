@@ -10,14 +10,14 @@ define(function(){
 function DOM () {
     var self = this;
 
-    self.append = function (NodeToAppend, Nodes){
-        if (Nodes.constructor && Nodes.constructor === HTMLDivElement){
+    self.append = function (nodeToAppend, nodes){
+        if (nodes instanceof HTMLElement){ // because HTML Element is on nodes' prototype chain
             // on Node
-            NodeToAppend.appendChild(Nodes);
-        }else if (Nodes.constructor && Nodes.constructor === Array){
+            nodeToAppend.appendChild(nodes);
+        }else if (nodes.constructor && nodes.constructor === Array){
             // Array of Nodes, but not yet HTMLCollection
-            for (var i = 0; i < Nodes.length; i++){
-                NodeToAppend.appendChild(Nodes[i]);
+            for (var i = 0; i < nodes.length; i++){
+                nodeToAppend.appendChild(nodes[i]);
             }
         }else{
             // DOMException Interface
