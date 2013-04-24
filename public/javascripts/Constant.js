@@ -20,10 +20,19 @@ define(function(){
             PER_PAGE:'5',
             FORMAT:'json',
             KEY : '91ddbec77138c1df09d74c15f6236652',
-            PAGE : 1
+            PAGE : 1,
+            MEDIUM_SIZE : '_m.jpg',
+            LARGE_SIZE : '_c.jpg'
+
         },
         SEARCH : {
             DEFAULT_TEXT : 'cat'
+        },
+        CANVAS : {
+            WIDTH_PADDING : 50,
+            HEIGHT_PADDING : 50,
+            X : 25,
+            Y : 25
         },
         OTHER : {
             // match URL for testing purpose

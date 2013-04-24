@@ -30,4 +30,14 @@ function DOM () {
             element.removeChild(element.firstChild);
         }
     }
+
+    self.showLoading = function() {
+        var loading = document.getElementById('loading');
+        loading.setAttribute('style','display:block;');
+    }
+
+    self.hideLoading = function() {
+        var loading = document.getElementById('loading');
+        loading.setAttribute('style','display:none;');
+    }
 }

@@ -3,7 +3,9 @@
  * Date: 22/04/2013
  * Time: 14:57
  */
-define(['../javascripts/Constant.js'],function(Loader,CONSTANT){
+define(['../javascripts/Constant.js',
+        '../javascripts/photo.js',
+        '../javascripts/DOM.js'],function(CONSTANT,Photo,DOM){
     return Photos;
 });
 
@@ -22,12 +24,14 @@ function Photos(){
 
         var photoDOMList = [];
 
-        var photoURLs = self.getPhotoURLs(photos);
+        var photoURLs = self.getPhotoURLsBase(photos);
 
         for (var i = 0; i < photoURLs.length; i ++){
             var img = document.createElement('img');
-            img.setAttribute('src',photoURLs[i]);
+            img.setAttribute('src',photoURLs[i] + CONSTANT.FLICKR.MEDIUM_SIZE);
+            img.setAttribute('data-large',photoURLs[i] + CONSTANT.FLICKR.LARGE_SIZE);
             img.setAttribute('class','imagePreview');
+            img.addEventListener('click',self.onSelectPhoto);
             photoDOMList.push(img);
         }
         return photoDOMList;
@@ -44,6 +48,40 @@ function Photos(){
             photoURLs.push(imageUrl);
         }
         return photoURLs;
+    }
+
+    self.getPhotoURLsBase = function (photos) {
+        var photoURLs = [];
+        for (var i = 0; i < photos.photo.length; i ++) {
+            var imageUrlBase = 'http://farm' + photos.photo[i].farm
+                + '.staticflickr.com/' + photos.photo[i].server
+                + '/' + photos.photo[i].id
+                + '_' + photos.photo[i].secret;
+            photoURLs.push(imageUrlBase);
+        }
+        return photoURLs;
+    }
+
+    self.onSelectPhoto = function (event) {
+        // set loading
+        var aDOM = new DOM();
+        aDOM.showLoading();
+
+        // find image
+        var imageElement = event.srcElement;
+        var photoURL = imageElement.getAttribute('data-large');
+
+        var aPhoto = new Photo();
+
+        // add the image to canvas
+        aPhoto.addToCanvas(photoURL,successCB,errorCB);
+
+        function successCB(){
+            // nothing
+        }
+        function errorCB(error){
+            console.log(error);
+        }
     }
 
 }

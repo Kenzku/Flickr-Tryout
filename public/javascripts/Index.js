@@ -107,4 +107,5 @@ function IndexPage () {
         self.sideBar.cleanSideBar();
         self.sideBar = new SideBar();
     }
+
 }
