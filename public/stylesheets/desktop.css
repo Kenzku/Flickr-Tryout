@@ -27,7 +27,7 @@ ul {
     list-style-type: none;
     padding: 0;
     line-height: 150%;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 li {
     vertical-align: top;
@@ -73,8 +73,13 @@ a {
     border-radius: 7px;
     background-color: #fff9fb;
     box-shadow: inset 0 0 7px #a8a8a8;
-    /*opacity: 0.4;*/
+    opacity: 0.4;
 }
+
+#search input:hover{
+    opacity: 0.9;
+}
+
 #loading{
     display: none;
 }
