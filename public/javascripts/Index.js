@@ -25,7 +25,7 @@ function IndexPage () {
      * initialise side bar: default search for dogs
      * display its median size images on the side bar
      * @param page {Number} the page that shown
-     * @param successCallback ({HTMLDivElement:sidebarList},{Number:currentPage})
+     * @param successCallback ({HTMLCollection:sidebarList [img]})
      * @param errorCallback (error)
      */
     self.showPhotoOnSideBar = function (page, successCallback, errorCallback) {
@@ -54,7 +54,7 @@ function IndexPage () {
             aDOM.append(sidebarList,photoDOMList);
 
             if (successCallback && typeof successCallback === 'function'){
-                successCallback(sidebarList);
+                successCallback(sidebarList.children);
             }
         }
 
@@ -85,21 +85,22 @@ function IndexPage () {
     /**
      * go to next page of search
      */
-    self.next = function(){
+    self.next = function(successCallback, errorCallback){
         if (!self.sideBar.nextPage) {
             throw CONSTANT.ERROR.FLICKR;
         }
-        self.showPhotoOnSideBar(self.sideBar.nextPage);
+        self.showPhotoOnSideBar(self.sideBar.nextPage,successCallback, errorCallback);
+
     }
 
     /**
      * go to next page of search
      */
-    self.previous = function(){
+    self.previous = function(successCallback, errorCallback){
         if (!self.sideBar.previousPage) {
             throw CONSTANT.ERROR.FLICKR;
         }
-        self.showPhotoOnSideBar(self.sideBar.previousPage);
+        self.showPhotoOnSideBar(self.sideBar.previousPage,successCallback, errorCallback);
     }
 
     self.resetSideBar = function (){
