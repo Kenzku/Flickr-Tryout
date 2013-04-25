@@ -5,7 +5,8 @@
  */
 define(['../javascripts/Constant.js',
         '../javascripts/photo.js',
-        '../javascripts/DOM.js'],function(CONSTANT,Photo,DOM){
+        '../javascripts/DOM.js',
+        '../javascripts/tools.js'],function(CONSTANT,Photo,DOM,Tools){
     return Photos;
 });
 
@@ -76,8 +77,24 @@ function Photos(){
         // add the image to canvas
         aPhoto.addToCanvas(photoURL,successCB,errorCB);
 
-        function successCB(){
-            // nothing
+        function successCB(aCanvas,aContext,anImage){
+            // tools listener
+            var aDOM = new DOM();
+            var aTool = new Tools();
+
+            var options = {
+                canvas : aCanvas,
+                context : aContext,
+                image : anImage
+            }
+            aDOM.flipHorizontal().addEventListener('click',function(){
+                options.method = 'horizontal';
+                aTool.flip(options);
+            });
+            aDOM.flipVertical().addEventListener('click',function(){
+                options.method = 'vertical'
+                aTool.flip(options);
+            });
         }
         function errorCB(error){
             console.log(error);

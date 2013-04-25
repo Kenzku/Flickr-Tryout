@@ -40,4 +40,14 @@ function DOM () {
         var loading = document.getElementById('loading');
         loading.setAttribute('style','display:none;');
     }
+
+    self.flipHorizontal = function(){
+        var flipHorizontal = document.getElementById('flipHorizontal');
+        return flipHorizontal;
+    }
+
+    self.flipVertical = function(){
+        var flipVertical = document.getElementById('flipVertical');
+        return flipVertical
+    }
 }

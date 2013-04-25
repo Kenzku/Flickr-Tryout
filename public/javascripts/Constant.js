@@ -12,6 +12,10 @@ define(function(){
             FLICKR : 'Flickr failed - reaosn unknown',
             PHOTOS : {
                 NO_PHOTOS : 'no photos passing'
+            },
+            PHOTO : {
+                NO_CONTEXT : 'no canvas context',
+                NO_IMAGE : 'no image specified'
             }
         },
         FLICKR : {

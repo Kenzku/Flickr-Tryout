@@ -10,7 +10,8 @@ require.config({
         'photosTest' : '/test/javascripts/photosTest',
         'sidebarTest': '/test/javascripts/sidebarTest',
         'domTest' : '/test/javascripts/domTest',
-        'indexTest' : '/test/javascripts/indexTest'
+        'indexTest' : '/test/javascripts/indexTest',
+        'photoTest' : '/test/javascripts/photoTest'
     }
 });
 QUnit.config.autostart = false;
@@ -19,8 +20,9 @@ require(['loaderTest',
         'photosTest',
         'sidebarTest',
         'domTest',
-        'indexTest'],
-    function (loaderTest,searchTest,photosTest,sidebarTest,domTest,indexTest) {
+        'indexTest',
+        'photoTest'],
+    function (loaderTest,searchTest,photosTest,sidebarTest,domTest,indexTest,photoTest) {
         QUnit.start();
         loaderTest.RunTests();
         searchTest.RunTests();
@@ -28,5 +30,6 @@ require(['loaderTest',
         sidebarTest.RunTests();
         domTest.RunTests();
         indexTest.RunTests();
+        photoTest.RunTests();
     }
 );
