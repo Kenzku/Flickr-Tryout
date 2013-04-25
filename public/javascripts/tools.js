@@ -44,7 +44,7 @@ function Tools () {
         _self.painting = false;
         _self.x = 0;
         _self.y = 0;
-        _self.style = options.fillStyle ? fillStyle : CONSTANT.CANVAS.DEFAULT_STYLE
+        _self.style = options.colour ? options.colour : CONSTANT.CANVAS.DEFAULT_STYLE
 
         _self.aCanvas.onmousedown = function(e) {
             _self.painting = true;

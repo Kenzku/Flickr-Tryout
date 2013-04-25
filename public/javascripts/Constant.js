@@ -34,8 +34,8 @@ define(function(){
         },
         CANVAS : {
             DEFAULT_STYLE : '#ffffff',
-            DEFAULT_THICKNESS : 1
-
+            DEFAULT_THICKNESS : 1,
+            TOOL_DISAPPEAR_TIME : 5000
 
         },
         OTHER : {

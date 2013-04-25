@@ -81,6 +81,7 @@ function Photos(){
             // tools listener
             var aDOM = new DOM();
             var aTool = new Tools();
+            var aPencil = null;
 
             var options = {
                 canvas : aCanvas,
@@ -106,8 +107,31 @@ function Photos(){
                 for (var i  = 0 ; i < aContext.saveCount; i++){
                     aContext.restore();
                 }
-                aTool.pencil(options);
+
+                aDOM.showElementById('colour');
+
+                aPencil = new aTool.pencil(options);
+//                aTool.pencil(options);
+
+                setTimeout(function(){
+                    aDOM.hideElementById('colour');
+                },CONSTANT.CANVAS.TOOL_DISAPPEAR_TIME);
             });
+
+            aDOM.colour().addEventListener('click',function(e){
+                options.colour = e.toElement.getAttribute('data-colour');
+                if(aPencil){
+                    aPencil.style = e.toElement.getAttribute('data-colour');
+                }
+            });
+
+            aDOM.saturation().addEventListener('click',function(){
+                aDOM.showElementById('dimmer');
+
+                setTimeout(function(){
+                    aDOM.hideElementById('dimmer');
+                },CONSTANT.CANVAS.TOOL_DISAPPEAR_TIME);
+            })
         }
         function errorCB(error){
             console.log(error);

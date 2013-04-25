@@ -52,4 +52,24 @@ function DOM () {
     self.pencil = function(){
         return document.getElementById('pencil');
     }
+
+    self.saturation = function(){
+        return document.getElementById('saturation');
+    }
+
+    self.download = function() {
+        return document.getElementById('download');
+    }
+
+    self.undo = function () {
+        return document.getElementById('undo');
+    }
+
+    self.redo = function () {
+        return document.getElementById('redo');
+    }
+
+    self.colour = function () {
+        return document.getElementById('colour');
+    }
 }

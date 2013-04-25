@@ -135,6 +135,10 @@ a {
     display: inline;
 }
 
+.tool:hover{
+    cursor: pointer;
+}
+
 #dimmer {
     position: fixed;
     top: 15px;
@@ -143,13 +147,45 @@ a {
     padding-left: 2px;
     padding-right: 2px;
     -webkit-border-radius: 5px;
-    background: #ededed;
+    background-color: #ededed;
     margin: 0px;
     margin-top: 10px;
     width: 125px;
     z-index: 100;
+    display: none;
 }
-#dimmer:hover {
-    background: #090909;
-    opacity: 0.4;
+
+#dimmer:hover,#colour:hover {
+    background: #b0b0b0;
+}
+#colour{
+    position: fixed;
+    top: 35px;
+    right : 0px;
+    margin-top: 10px;
+    background-color: #ededed;
+    z-index: 100;
+    display: none;
+}
+
+#red {
+    color: red;
+}
+#yellow{
+    color: yellow;
+}
+#green{
+    color: palegreen;
+}
+#blue{
+    color:cornflowerblue;
+}
+#purple{
+    color: mediumpurple;
+}
+#white{
+    color: #ffffff;
+}
+#black{
+    color: black;
 }
