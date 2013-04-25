@@ -66,7 +66,7 @@ function Photos(){
     self.onSelectPhoto = function (event) {
         // set loading
         var aDOM = new DOM();
-        aDOM.showLoading();
+        aDOM.showElementById('loading');
 
         // find image
         var imageElement = event.srcElement;
@@ -87,13 +87,26 @@ function Photos(){
                 context : aContext,
                 image : anImage
             }
+            aContext.saveCount = 0;
             aDOM.flipHorizontal().addEventListener('click',function(){
                 options.method = 'horizontal';
+                aContext.save();
+                aContext.saveCount++;
                 aTool.flip(options);
             });
+
             aDOM.flipVertical().addEventListener('click',function(){
-                options.method = 'vertical'
+                options.method = 'vertical';
+                aContext.save();
+                aContext.saveCount++;
                 aTool.flip(options);
+            });
+
+            aDOM.pencil().addEventListener('click',function(){
+                for (var i  = 0 ; i < aContext.saveCount; i++){
+                    aContext.restore();
+                }
+                aTool.pencil(options);
             });
         }
         function errorCB(error){

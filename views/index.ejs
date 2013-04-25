@@ -31,13 +31,16 @@
   <div id="content" class="content">
       <div id="imageZone"></div>
       <div id="tools">
+          <div id="pencil" class="tool"><i class="icon-pencil"></i></div>
           <div id="flipHorizontal" class="tool"><i class="icon-resize-horizontal"></i></div>
           <div id="flipVertical" class="tool"><i class="icon-resize-vertical"></i></div>
           <div id="undo" class="tool"><i class="icon-reply"></i></div>
           <div id="redo" class="tool"><i class="icon-share-alt"></i></div>
           <div id="saturation" class="tool"><i class="icon-filter"></i></div>
           <div id="download" class="tool"><i class="icon-cloud-download"></i></div>
-
+      </div>
+      <div id="strength">
+          <input id='dimmer' type='range' min='0' max='30' step='1' value='15'>
       </div>
   </div>
   <script data-main="/javascripts/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>

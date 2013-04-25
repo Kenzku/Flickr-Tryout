@@ -33,10 +33,10 @@ define(function(){
             DEFAULT_TEXT : 'cat'
         },
         CANVAS : {
-            WIDTH_PADDING : 50,
-            HEIGHT_PADDING : 50,
-            X : 25,
-            Y : 25
+            DEFAULT_STYLE : '#ffffff',
+            DEFAULT_THICKNESS : 1
+
+
         },
         OTHER : {
             // match URL for testing purpose

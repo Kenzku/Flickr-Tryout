@@ -30,7 +30,7 @@ function Photo() {
 
         anImage.onload = function () {
             var aDOM = new DOM();
-            aDOM.hideLoading();
+            aDOM.hideElementById('loading');
             // create canvas
             var aCanvas = self.createCanvas(removeOldCanvas);
 

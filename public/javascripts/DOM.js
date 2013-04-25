@@ -31,23 +31,25 @@ function DOM () {
         }
     }
 
-    self.showLoading = function() {
-        var loading = document.getElementById('loading');
+    self.showElementById = function(id) {
+        var loading = document.getElementById(id);
         loading.setAttribute('style','display:block;');
     }
 
-    self.hideLoading = function() {
-        var loading = document.getElementById('loading');
+    self.hideElementById = function(id) {
+        var loading = document.getElementById(id);
         loading.setAttribute('style','display:none;');
     }
 
     self.flipHorizontal = function(){
-        var flipHorizontal = document.getElementById('flipHorizontal');
-        return flipHorizontal;
+        return document.getElementById('flipHorizontal');
     }
 
     self.flipVertical = function(){
-        var flipVertical = document.getElementById('flipVertical');
-        return flipVertical
+        return document.getElementById('flipVertical');
+    }
+
+    self.pencil = function(){
+        return document.getElementById('pencil');
     }
 }

@@ -1,3 +1,6 @@
+body{
+    margin: 0px;
+}
 #sidebar {
     background: #EEE;
     box-shadow: 0 0 20px #ccc;
@@ -93,6 +96,7 @@ a {
 }
 
 .imagePreview:hover {
+    box-shadow: 0 4px 8px 6px #6e6e6e;
     transform:scale(1.2,1.2);
     -webkit-transform:scale(1.2,1.2);
 }
@@ -129,4 +133,23 @@ a {
 
 .tool {
     display: inline;
+}
+
+#dimmer {
+    position: fixed;
+    top: 15px;
+    right : 0px;
+    -webkit-appearance: none; !important/* does not support Firefox */
+    padding-left: 2px;
+    padding-right: 2px;
+    -webkit-border-radius: 5px;
+    background: #ededed;
+    margin: 0px;
+    margin-top: 10px;
+    width: 125px;
+    z-index: 100;
+}
+#dimmer:hover {
+    background: #090909;
+    opacity: 0.4;
 }
