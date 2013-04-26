@@ -7,7 +7,8 @@ define(function(){
     return CONSTANT = {
         ERROR : {
             LOAD_DATA : {
-              LACK_OPTION : 'no option'
+                LACK_OPTION : 'no option',
+                LOAD_IMAGE : 'cannot load image from base64'
             },
             FLICKR : 'Flickr failed - reaosn unknown',
             PHOTOS : {

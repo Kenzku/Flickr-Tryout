@@ -9,20 +9,45 @@ define(['../javascripts/Constant.js',
 });
 function Tools () {
     var self = this;
-
-    self.flip = function (options) {
+    /**
+     * flip the image
+     * @param options {Object}
+     * method : {String} either "horizontal" or "vertical"
+     * context : the Context of the Canvas
+     * image : the Image Element
+     */
+    self.flip = function (options,successCallback, errorCallBack) {
         if (!options ||
+            !options.canvas ||
             !options.context||
             !options.image){
             return;
         }
         var aMethod = options.method ? options.method : 'horizontal';
+        var aCanvas = options.canvas;
         var aContext = options.context;
         var anImage = options.image;
         if (aMethod == 'horizontal'){
-            aContext.translate(anImage.width,0);
-            aContext.scale(-1,1);
-            aContext.drawImage(anImage, 0,0, anImage.width, anImage.height);
+            var newImage = document.createElement('img');
+            newImage.src = aCanvas.toDataURL();
+            newImage.onload = function (){
+                aContext.drawImage(newImage,0,0);
+                aContext.translate(newImage.width,0);
+                aContext.scale(-1,1);
+                aContext.drawImage(newImage, 0,0, newImage.width, newImage.height);
+                if (successCallback && typeof successCallback == 'function'){
+                    successCallback(aCanvas,aContext,newImage);
+                }
+            }
+
+            newImage.onerror = function (error){
+                if (errorCallBack && typeof errorCallBack == 'function'){
+                    errorCallBack(error);
+                }else{
+                    throw CONSTANT.ERROR.LOAD_DATA.LOAD_IMAGE;
+                }
+            }
+
         }else if (aMethod == 'vertical'){
             aContext.translate(0,anImage.height);
             aContext.scale(1,-1);
@@ -31,7 +56,13 @@ function Tools () {
             return;
         }
     }
-
+    /**
+     * draw on the Canvas
+     * @param options {Object}
+     * canvas : the Canvas Element
+     * context : the Context of the Canvas
+     * colour : the pencil colour
+     */
     self.pencil = function (options) {
 
         var _self = this;
@@ -49,6 +80,9 @@ function Tools () {
         _self.style = options.colour ? options.colour : CONSTANT.CANVAS.DEFAULT_STYLE
 
         _self.aCanvas.onmousedown = function(e) {
+            for (var i  = 0 ; i < _self.aContext.saveCount; i++){
+                _self.aContext.restore();
+            }
             _self.painting = true;
             _self.aContext.fillStyle = _self.style;
             // offsetParent depends on their parents who have 'position', margin and padding
@@ -139,12 +173,16 @@ function Tools () {
             }
         }
     }
-
+    /**
+     * save the image from Canvas
+     * @param aCanvas the Canvas
+     */
     self.canvasToImage = function (aCanvas) {
         // get base64 encoded image from the Canvas
         var newIMG = aCanvas.toDataURL();
         // change the MIME data
         var downloadURL = newIMG.replace(/^data:image\//gmi, 'data:application/octet-stream');
+        // tricks to trigger download
         location.href = downloadURL;
     }
 }

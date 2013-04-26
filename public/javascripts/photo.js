@@ -43,12 +43,9 @@ function Photo() {
             self.context = aContext;
 
             // set canvas context
-//            aCanvas.height = anImage.height + CONSTANT.CANVAS.HEIGHT_PADDING;
-//            aCanvas.width = anImage.width + CONSTANT.CANVAS.WIDTH_PADDING;
             aCanvas.height = anImage.height;
             aCanvas.width = anImage.width;
             // load the image that selected onto the canvas
-//            aContext.drawImage(anImage,CONSTANT.CANVAS.X,CONSTANT.CANVAS.Y);
             aContext.drawImage(anImage,0,0);
 
             if (successCallback && typeof successCallback === 'function'){

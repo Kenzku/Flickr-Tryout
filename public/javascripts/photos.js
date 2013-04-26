@@ -118,14 +118,11 @@ function Photos(){
             });
 
             aDOM.pencil().addEventListener('click',function(){
-                for (var i  = 0 ; i < aContext.saveCount; i++){
-                    aContext.restore();
-                }
+
 
                 aDOM.showElementById('colour');
 
                 aPencil = new aTool.pencil(options);
-//                aTool.pencil(options);
 
                 setTimeout(function(){
                     aDOM.hideElementById('colour');
@@ -150,11 +147,6 @@ function Photos(){
             aDOM.download().addEventListener('click',function(){
                 aTool.canvasToImage(aCanvas);
             });
-
-//            var newIMG = aCanvas.toDataURL();
-//            var aLink = document.createElement('a');
-//            aLink.setAttribute('href',newIMG);
-//            aLink.setAttribute('download','image.png');
 
         }
 
