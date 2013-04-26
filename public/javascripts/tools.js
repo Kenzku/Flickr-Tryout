@@ -141,10 +141,9 @@ function Tools () {
     }
 
     self.canvasToImage = function (aCanvas) {
+        // get base64 encoded image from the Canvas
         var newIMG = aCanvas.toDataURL();
-        var aLink = document.createElement('a');
-        aLink.setAttribute('href',newIMG);
-        aLink.setAttribute('download','image.png');
+        // change the MIME data
         var downloadURL = newIMG.replace(/^data:image\//gmi, 'data:application/octet-stream');
         location.href = downloadURL;
     }
