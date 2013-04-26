@@ -27,6 +27,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/image/:url',routes.ParseThenShow)
 app.get('/test', function(req,res){
     res.sendfile(__dirname + '/public/test/testall.html');
 });

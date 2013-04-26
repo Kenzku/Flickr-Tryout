@@ -125,6 +125,7 @@ a {
     box-shadow: 0 0 7px #a8a8a8;
     text-shadow: #000 0 0 0.2em;
     opacity: 0.4;
+    z-index: 100;
 }
 
 #tools:hover {

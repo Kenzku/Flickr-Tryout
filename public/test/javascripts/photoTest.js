@@ -45,8 +45,8 @@ define(['../../javascripts/photo.js'],function(Photo){
                     equal(imageZone.childElementCount,1);
 
                     // is canvas context
-                    equal(aCanvas.height,anImage.height + CONSTANT.CANVAS.HEIGHT_PADDING);
-                    equal(aCanvas.width,anImage.width + CONSTANT.CANVAS.WIDTH_PADDING);
+                    equal(aCanvas.height,anImage.height);
+                    equal(aCanvas.width,anImage.width);
 
                     /* NEED TO IMPROVE - TESTING `drawImage` */
 
@@ -59,32 +59,32 @@ define(['../../javascripts/photo.js'],function(Photo){
                 }
             });
 
-            asyncTest('flip an image',function () {
-                var aPhoto = new Photo();
-
-                aPhoto.addToCanvas('http://farm9.staticflickr.com/8403/8679589215_80f8bbbd6e_m.jpg',
-                    successCB_1, errorCB_1);
-
-                function successCB_1(aCanvas,aContext,anImage){
-                    aPhoto.flip('horizontal',anImage,aContext,successCB_2,errorCB_2);
-                }
-
-                function errorCB_1(error) {
-                    ok(false,error);
-                    start();
-                }
-
-                function successCB_2 (aCanvas,aContext,anImage) {
-                    ok(true);
-                    start();
-                }
-
-                function errorCB_2(error) {
-                    console.log(error);
-                    ok(false,error);
-                    start();
-                }
-            });
+//            asyncTest('flip an image',function () {
+//                var aPhoto = new Photo();
+//
+//                aPhoto.addToCanvas('http://farm9.staticflickr.com/8403/8679589215_80f8bbbd6e_m.jpg',
+//                    successCB_1, errorCB_1);
+//
+//                function successCB_1(aCanvas,aContext,anImage){
+//                    aPhoto.flip('horizontal',anImage,aContext,successCB_2,errorCB_2);
+//                }
+//
+//                function errorCB_1(error) {
+//                    ok(false,error);
+//                    start();
+//                }
+//
+//                function successCB_2 (aCanvas,aContext,anImage) {
+//                    ok(true);
+//                    start();
+//                }
+//
+//                function errorCB_2(error) {
+//                    console.log(error);
+//                    ok(false,error);
+//                    start();
+//                }
+//            });
         }
     }
 });

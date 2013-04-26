@@ -15,10 +15,12 @@ function IndexPage () {
     var self = this;
 
     self.sideBar = new SideBar();
+    self.currentSearch = CONSTANT.SEARCH.DEFAULT_TEXT;
 
     self.init = function (){
         self.showPhotoOnSideBar();
         self.initNavButton();
+        self.initSearch();
     }
 
     /**
@@ -28,11 +30,16 @@ function IndexPage () {
      * @param successCallback ({HTMLCollection:sidebarList [img]})
      * @param errorCallback (error)
      */
-    self.showPhotoOnSideBar = function (page, successCallback, errorCallback) {
+    self.showPhotoOnSideBar = function (options, successCallback, errorCallback) {
         var aSearch = new Search();
-        var options = {
-            keywords : 'dog',
-            page : page ? page : CONSTANT.FLICKR.PAGE
+        var options = options ?
+        {
+            keywords : options.keywords ? options.keywords : self.currentSearch,
+            page : options.page ? options.page : CONSTANT.FLICKR.PAGE
+        } :
+        {
+            keywords : self.currentSearch,
+            page : CONSTANT.FLICKR.PAGE
         };
         aSearch.searchPhoto(options,successCB,errorCB);
 
@@ -89,7 +96,10 @@ function IndexPage () {
         if (!self.sideBar.nextPage) {
             throw CONSTANT.ERROR.FLICKR;
         }
-        self.showPhotoOnSideBar(self.sideBar.nextPage,successCallback, errorCallback);
+        var options = {
+            page : self.sideBar.nextPage
+        }
+        self.showPhotoOnSideBar(options,successCallback, errorCallback);
 
     }
 
@@ -100,7 +110,22 @@ function IndexPage () {
         if (!self.sideBar.previousPage) {
             throw CONSTANT.ERROR.FLICKR;
         }
-        self.showPhotoOnSideBar(self.sideBar.previousPage,successCallback, errorCallback);
+        var options = {
+            page : self.sideBar.previousPage
+        }
+        self.showPhotoOnSideBar(options,successCallback, errorCallback);
+    }
+
+    self.initSearch = function(){
+        var aDOM = new DOM();
+        aDOM.search().addEventListener('keyup',function(e){
+            if (e.keyCode == 13){
+                self.currentSearch = this.value.length > 0 ?
+                    this.value : self.currentSearch;
+                self.sideBar.cleanSideBar();
+                self.showPhotoOnSideBar();
+            }
+        });
     }
 
     self.resetSideBar = function (){

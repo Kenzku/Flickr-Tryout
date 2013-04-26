@@ -3,14 +3,16 @@
  * Date: 25/04/2013
  * Time: 16:34
  */
-define(['../javascripts/Constant.js'],function(CONSTANT) {
+define(['../javascripts/Constant.js',
+        '../javascripts/lib/canvas2image.js'],function(CONSTANT,Canvas2Image) {
     return Tools;
 });
 function Tools () {
     var self = this;
 
     self.flip = function (options) {
-        if (!options.context||
+        if (!options ||
+            !options.context||
             !options.image){
             return;
         }
@@ -138,4 +140,8 @@ function Tools () {
         }
     }
 
+    self.canvasToImage = function (aCanvas) {
+        var aCanvas2Image = new Canvas2Image();
+        aCanvas2Image.saveAsPNG(aCanvas);
+    }
 }

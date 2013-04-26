@@ -72,4 +72,8 @@ function DOM () {
     self.colour = function () {
         return document.getElementById('colour');
     }
+
+    self.search = function () {
+        return document.getElementById('search').firstElementChild;
+    }
 }

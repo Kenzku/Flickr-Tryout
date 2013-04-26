@@ -6,7 +6,8 @@
 define(['../javascripts/Constant.js',
         '../javascripts/photo.js',
         '../javascripts/DOM.js',
-        '../javascripts/tools.js'],function(CONSTANT,Photo,DOM,Tools){
+        '../javascripts/tools.js',
+        '../javascripts/loader.js'],function(CONSTANT,Photo,DOM,Tools,Loader){
     return Photos;
 });
 
@@ -72,12 +73,19 @@ function Photos(){
         var imageElement = event.srcElement;
         var photoURL = imageElement.getAttribute('data-large');
 
-        var aPhoto = new Photo();
+        // send the large image to server
+        var aLoader = new Loader();
+        var encodedURL = encodeURIComponent(photoURL);
+        aLoader.requestURL(encodedURL,successCB_1)
 
-        // add the image to canvas
-        aPhoto.addToCanvas(photoURL,successCB,errorCB);
+        function successCB_1 (imageOnServer) {
+            var aPhoto = new Photo();
 
-        function successCB(aCanvas,aContext,anImage){
+            // add the image to canvas
+            aPhoto.addToCanvas(imageOnServer,successCB_2,errorCB);
+        }
+
+        function successCB_2(aCanvas,aContext,anImage){
             // tools listener
             var aDOM = new DOM();
             var aTool = new Tools();
@@ -131,8 +139,13 @@ function Photos(){
                 setTimeout(function(){
                     aDOM.hideElementById('dimmer');
                 },CONSTANT.CANVAS.TOOL_DISAPPEAR_TIME);
-            })
+            });
+
+            aDOM.download().addEventListener('click',function(){
+                aTool.canvasToImage(aCanvas);
+            });
         }
+
         function errorCB(error){
             console.log(error);
         }
