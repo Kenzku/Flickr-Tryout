@@ -150,6 +150,12 @@ function Photos(){
             aDOM.download().addEventListener('click',function(){
                 aTool.canvasToImage(aCanvas);
             });
+
+//            var newIMG = aCanvas.toDataURL();
+//            var aLink = document.createElement('a');
+//            aLink.setAttribute('href',newIMG);
+//            aLink.setAttribute('download','image.png');
+
         }
 
         function errorCB(error){

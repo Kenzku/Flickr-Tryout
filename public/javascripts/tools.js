@@ -141,7 +141,11 @@ function Tools () {
     }
 
     self.canvasToImage = function (aCanvas) {
-        var aCanvas2Image = new Canvas2Image();
-        aCanvas2Image.saveAsPNG(aCanvas);
+        var newIMG = aCanvas.toDataURL();
+        var aLink = document.createElement('a');
+        aLink.setAttribute('href',newIMG);
+        aLink.setAttribute('download','image.png');
+        var downloadURL = newIMG.replace(/^data:image\//gmi, 'data:application/octet-stream');
+        location.href = downloadURL;
     }
 }
