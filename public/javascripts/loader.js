@@ -70,7 +70,7 @@ function Loader() {
         var xhr = new XMLHttpRequest();
 
         try {
-            xhr.open('GET','/image/encodedURL');
+            xhr.open('GET','/url/' + encodedURL);
             xhr.setRequestHeader("Content-type","application/json");
             xhr.send();
         } catch (e) {
@@ -84,6 +84,10 @@ function Loader() {
             {
                 if (successCallback && typeof successCallback === 'function'){
                     successCallback(xhr.responseText);
+                }
+            }else if (xhr.readyState==4 && xhr.status!=200){
+                if (errorCallback && typeof errorCallback === 'function'){
+                    errorCallback(xhr.responseText);
                 }
             }
         }

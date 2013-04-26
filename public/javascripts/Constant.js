@@ -16,6 +16,9 @@ define(function(){
             PHOTO : {
                 NO_CONTEXT : 'no canvas context',
                 NO_IMAGE : 'no image specified'
+            },
+            SERVER : {
+                IMAGE : "image cannot be saved"
             }
         },
         FLICKR : {

@@ -30,6 +30,23 @@ define(['../../javascripts/loader.js'],function (Loader){
                 }
 
             });
+
+            asyncTest('ask the server to get Image',function(){
+                var aLoader = new Loader();
+                aLoader.requestURL('http%3A%2F%2Ffarm9.staticflickr.com%2F8379%2F8682346439_e5e476ccb1_c.jpg',successCB, errorCB);
+                function successCB(data){
+                    var data = JSON.parse(data);
+                    console.log(data);
+                    ok(true);
+                    start();
+                }
+
+                function errorCB(data){
+                    console.log(data);
+                    ok(false);
+                    start();
+                }
+            });
         }
     }
 });

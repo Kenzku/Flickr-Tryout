@@ -78,11 +78,17 @@ function Photos(){
         var encodedURL = encodeURIComponent(photoURL);
         aLoader.requestURL(encodedURL,successCB_1)
 
-        function successCB_1 (imageOnServer) {
-            var aPhoto = new Photo();
-
-            // add the image to canvas
-            aPhoto.addToCanvas(imageOnServer,successCB_2,errorCB);
+        function successCB_1 (data) {
+            var data = JSON.parse(data);
+            if (data.url){
+                var aPhoto = new Photo();
+                // add the image to canvas
+                aPhoto.addToCanvas(data.url,successCB_2,errorCB);
+            }else if (data.error){
+                throw data.error;
+            }else{
+                throw CONSTANT.ERROR.SERVER.IMAGE;
+            }
         }
 
         function successCB_2(aCanvas,aContext,anImage){

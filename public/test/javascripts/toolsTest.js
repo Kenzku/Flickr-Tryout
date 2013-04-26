@@ -12,7 +12,7 @@ define(['../../javascripts/tools.js'],function(Tools){
                 var aCanvas = document.createElement('canvas');
                 var fixture = document.getElementById('qunit-fixture');
                 fixture.appendChild(aCanvas);
-                anImage.src = '../../images/testIMG.jpg';
+                anImage.src = '../../images/detail.jpg';
 
                 anImage.onload = function (){
                     aCanvas.height = anImage.height;
@@ -43,7 +43,7 @@ define(['../../javascripts/tools.js'],function(Tools){
                 var aCanvas = document.createElement('canvas');
                 var fixture = document.getElementById('qunit-fixture');
                 fixture.appendChild(aCanvas);
-                anImage.src = '../../images/testIMG.jpg';
+                anImage.src = '../../images/detail.jpg';
 
                 anImage.onload = function (){
                     aCanvas.height = anImage.height;
