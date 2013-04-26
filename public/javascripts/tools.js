@@ -49,9 +49,25 @@ function Tools () {
             }
 
         }else if (aMethod == 'vertical'){
-            aContext.translate(0,anImage.height);
-            aContext.scale(1,-1);
-            aContext.drawImage(anImage, 0,0, anImage.width, anImage.height);
+            var newImage = document.createElement('img');
+            newImage.src = aCanvas.toDataURL();
+            newImage.onload = function (){
+                aContext.drawImage(newImage,0,0);
+                aContext.translate(0,newImage.height);
+                aContext.scale(1,-1);
+                aContext.drawImage(newImage, 0,0, newImage.width, newImage.height);
+                if (successCallback && typeof successCallback == 'function'){
+                    successCallback(aCanvas,aContext,newImage);
+                }
+            }
+
+            newImage.onerror = function (error){
+                if (errorCallBack && typeof errorCallBack == 'function'){
+                    errorCallBack(error);
+                }else{
+                    throw CONSTANT.ERROR.LOAD_DATA.LOAD_IMAGE;
+                }
+            }
         }else{
             return;
         }
