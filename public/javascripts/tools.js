@@ -109,8 +109,19 @@ function Tools (historySupport) {
             _self.aContext.fillStyle = _self.style;
             // offsetParent depends on their parents who have 'position', margin and padding
             // Plus, the body's margin and padding
-            _self.x = e.pageX - this.offsetParent.offsetLeft - this.offsetLeft - window.getComputedStyle(this)['padding-left'].replace("px","");
-            _self.y = e.pageY - this.offsetParent.offsetTop - this.offsetTop - window.getComputedStyle(this)['padding-top'].replace("px","");
+            var cssOffsetX;
+            var cssOffsetY;
+            if (window.getComputedStyle(this)['padding-left']){
+                // chrome
+                cssOffsetX = window.getComputedStyle(this)['padding-left'].replace("px","");
+                cssOffsetY = window.getComputedStyle(this)['padding-top'].replace("px","");
+            }else{
+                // firefox
+                cssOffsetX = window.getComputedStyle(this).getPropertyValue('padding-left').replace("px","");
+                cssOffsetY = window.getComputedStyle(this).getPropertyValue('padding-left').replace("px","");
+            }
+            _self.x = e.pageX - this.offsetParent.offsetLeft - cssOffsetX;
+            _self.y = e.pageY - this.offsetParent.offsetTop - cssOffsetY;
         };
 
         _self.aCanvas.onmouseup = function(e){
@@ -129,8 +140,19 @@ function Tools (historySupport) {
              */
             if (_self.painting) {
                 // NOTE: element.style cannot css files property
-                var mouseX = e.pageX - this.offsetParent.offsetLeft - this.offsetLeft - window.getComputedStyle(this)['padding-left'].replace("px","");
-                var mouseY = e.pageY - this.offsetParent.offsetTop - this.offsetTop - window.getComputedStyle(this)['padding-top'].replace("px","");
+                var cssOffsetX;
+                var cssOffsetY;
+                if (window.getComputedStyle(this)['padding-left']){
+                    // chrome
+                    cssOffsetX = window.getComputedStyle(this)['padding-left'].replace("px","");
+                    cssOffsetY = window.getComputedStyle(this)['padding-top'].replace("px","");
+                }else{
+                    // firefox
+                    cssOffsetX = window.getComputedStyle(this).getPropertyValue('padding-left').replace("px","");
+                    cssOffsetY = window.getComputedStyle(this).getPropertyValue('padding-left').replace("px","");
+                }
+                var mouseX = e.pageX - this.offsetParent.offsetLeft - this.offsetLeft - cssOffsetX;
+                var mouseY = e.pageY - this.offsetParent.offsetTop - this.offsetTop - cssOffsetY;
 
                 // find all points between
                 var x0 = mouseX;

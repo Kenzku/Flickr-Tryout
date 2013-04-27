@@ -71,7 +71,14 @@ function Photos(){
         aDOM.showElementById('loading');
 
         // find image
-        var imageElement = event.srcElement;
+        var imageElement;
+        if (event.srcElement){
+            //chrome
+            imageElement = event.srcElement;
+        }else{
+            //fire fox
+            imageElement = this;
+        }
         var photoURL = imageElement.getAttribute('data-large');
 
         // send the large image to server
@@ -133,9 +140,23 @@ function Photos(){
             });
 
             aDOM.colour().addEventListener('click',function(e){
-                options.colour = e.toElement.getAttribute('data-colour');
+                if (e.toElement){
+                    // chrome
+                    options.colour = e.toElement.getAttribute('data-colour');
+                }else{
+                    // firefox
+                    options.colour = this.getAttribute('data-colour');
+                }
+
                 if(aPencil){
-                    aPencil.style = e.toElement.getAttribute('data-colour');
+                    if (e.toElement){
+                        // chrome
+                        aPencil.style = e.toElement.getAttribute('data-colour');
+                    }else{
+                        // firefox
+                        aPencil.style = e.target.getAttribute('data-colour');
+                    }
+
                 }
             });
 

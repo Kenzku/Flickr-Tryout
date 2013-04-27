@@ -5,7 +5,7 @@ body{
     background: #EEE;
     box-shadow: 0 0 20px #ccc;
     -webkit-box-shadow: 0 0 20px #ccc;
-    -moz-box-shadow: 0 0 20px #ccc;
+    /*-moz-box-shadow: 0 0 20px #ccc;*/
     overflow-y: auto;
     padding: 0 30px 30px 30px;
     width: 250px;
@@ -140,25 +140,6 @@ a {
     cursor: pointer;
 }
 
-#dimmer {
-    position: fixed;
-    top: 15px;
-    right : 0px;
-    -webkit-appearance: none; !important/* does not support Firefox */
-    padding-left: 2px;
-    padding-right: 2px;
-    -webkit-border-radius: 5px;
-    background-color: #ededed;
-    margin: 0px;
-    margin-top: 10px;
-    width: 125px;
-    z-index: 100;
-    display: none;
-}
-
-#dimmer:hover,#colour:hover {
-    background: #b0b0b0;
-}
 #colour{
     position: fixed;
     top: 15px;
