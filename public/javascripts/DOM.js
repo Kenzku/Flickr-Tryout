@@ -6,10 +6,17 @@
 define(function(){
     return DOM;
 });
-
+/**
+ * helper DOM
+ * @constructor
+ */
 function DOM () {
     var self = this;
-
+    /**
+     * append `nodes` to `nodeToAppend`
+     * @param nodeToAppend {HTMLElement}
+     * @param nodes {HTMLElement|HTMLCollection}
+     */
     self.append = function (nodeToAppend, nodes){
         if (nodes instanceof HTMLElement){ // because HTML Element is on nodes' prototype chain
             // on Node

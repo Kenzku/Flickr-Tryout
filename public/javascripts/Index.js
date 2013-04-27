@@ -26,7 +26,8 @@ function IndexPage () {
     /**
      * initialise side bar: default search for dogs
      * display its median size images on the side bar
-     * @param page {Number} the page that shown
+     * @param options {Object} the page that shown
+     * {String:keywords,Number:page}
      * @param successCallback ({HTMLCollection:sidebarList [img]})
      * @param errorCallback (error)
      */
@@ -116,6 +117,10 @@ function IndexPage () {
         self.showPhotoOnSideBar(options,successCallback, errorCallback);
     }
 
+    /**
+     * initialise search bar
+     * key 13 is the 'enter' key
+     */
     self.initSearch = function(){
         var aDOM = new DOM();
         aDOM.search().addEventListener('keyup',function(e){

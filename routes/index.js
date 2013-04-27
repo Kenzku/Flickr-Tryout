@@ -9,7 +9,9 @@ exports.index = function(req, res){
 };
 
 exports.ParseThenShow = function(req, res){
+    // get parameter
     var foreignURL = req.params.url;
+    // download the image
     var anImageDealer = new ImageDealer();
     anImageDealer.getImageURL(foreignURL,successCB, errorCB);
 

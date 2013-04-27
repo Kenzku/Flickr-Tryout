@@ -65,7 +65,17 @@ function Loader() {
             }
         }
     }
-
+    /**
+     * request the server download the image
+     * This is for the Cross-Domain policy, in order to download
+     * @param encodedURL {String} URL encoded string
+     * @param successCallback {String}
+     * it is a String like JSON, thus you need to parse before use
+     * data.url
+     * @param errorCallback (error)
+     * it is a String like JSON, thus you need to parse before use
+     * data.error
+     */
     self.requestURL = function(encodedURL, successCallback, errorCallback) {
         var xhr = new XMLHttpRequest();
 
