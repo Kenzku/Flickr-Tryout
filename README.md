@@ -30,7 +30,8 @@ then go to ```http://localhost:3000/test```
 
 To run the test on Server side, please go to `cd Flickr-Tryout` then use ```mocha ./test/ -R spec -u qunit -t 10000```
 
-## More detail?
+## More Detail?
+
 It has a search interface where you can enter a keyword. 
 The side bar is where photo’s that match the keyword appears. 
 Then Click the photo showing its larger size (if it has) in the content portion.
@@ -47,12 +48,30 @@ I did not use full blown library like jQuery, Backbone or Angular, but I used a 
 
 
 ## Why Server?
+
 Because The ```toDataURL()``` method requires that any images drawn onto the canvas are hosted on a web server with the same domain as the code executing it.  
 If this condition is not met, a __SECURITY_ERR__ exception is thrown.
 
 More example, you can no longer use the canvas toBlob() or getImageData() methods; doing so will throw a __security error__.
 
 More see: ```https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image```
+
+## Code Structure
+
+You will find all client side realted files in `public` folder, everything else are for the server.
+The server is basically used to generate the page by `EJS` template and routing.
+
+* `lib` folder is javascript codes for server.
+* `routes` folder is javascript files too but for routing. e.g.
+* `test` folder contains testing file using `mocha`
+* `views` folder contains templates that will be rendered by NodeJS server
+* `package.json` contains all other libraries that you need to run the NodeJS server
+* `public/images` contains the image downloaded by the server, but it is not the image that the user has edited
+* `public/javascripts` contains all javascript files the web application needs
+* `public/stylesheets` contains CSS files
+* `public/test` contains Qunit testing files.
+
+
 
 ## Others
 
