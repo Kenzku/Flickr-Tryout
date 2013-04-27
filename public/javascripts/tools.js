@@ -3,8 +3,7 @@
  * Date: 25/04/2013
  * Time: 16:34
  */
-define(['../javascripts/Constant.js',
-        '../javascripts/lib/canvas2image.js'],function(CONSTANT,Canvas2Image) {
+define(['../javascripts/Constant.js'],function(CONSTANT) {
     return Tools;
 });
 function Tools (historySupport) {
