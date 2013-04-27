@@ -18,7 +18,6 @@ exports.ParseThenShow = function(req, res){
     var data = {};
 
     function successCB(url){
-        console.log(url);
         data.url = url;
         res.json(200, data);
     }

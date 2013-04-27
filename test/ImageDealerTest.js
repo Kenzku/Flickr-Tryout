@@ -7,7 +7,6 @@ var assert = require("assert")
     , fs = require('fs')
     , ImageDealer = require('../lib/imageDealer')
     , CONSTANT = require('../lib/Constant')
-    , chai = require('chai')
     , path = require('path');
 
 function ok(expr, msg) {
