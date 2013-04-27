@@ -53,10 +53,6 @@ function DOM () {
         return document.getElementById('pencil');
     }
 
-    self.saturation = function(){
-        return document.getElementById('saturation');
-    }
-
     self.download = function() {
         return document.getElementById('download');
     }

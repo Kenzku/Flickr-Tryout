@@ -139,14 +139,6 @@ function Photos(){
                 }
             });
 
-            aDOM.saturation().addEventListener('click',function(){
-                aDOM.showElementById('dimmer');
-
-                setTimeout(function(){
-                    aDOM.hideElementById('dimmer');
-                },CONSTANT.CANVAS.TOOL_DISAPPEAR_TIME);
-            });
-
             aDOM.download().addEventListener('click',function(){
                 aTool.canvasToImage(aCanvas);
             });

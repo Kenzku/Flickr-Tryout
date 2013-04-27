@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/howto.css'/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+</head>
+<body>
+
+<div id="controlPenal">
+    <div id="urlCrawlerLogo"></div>
+    <a href="/">
+        <div id="home">
+            <i class="icon-home"></i>
+        </div>
+    </a>
+    <a href="/howto">
+        <div id="howTo">
+            <i class="icon-question-sign"></i>
+        </div>
+    </a>
+</div>
+
+<div id="chat">
+    <p>HOW TO?</p>
+    <div id="bubble">
+        <div class="bubble me"><%= howto.what %></div>
+        <div class="bubble you"><%= howto.whatElse %></div>
+        <div class="bubble me"><%= howto.more %></div>
+        <div class="bubble you"><%= howto.then %></div>
+        <div class="bubble me"><%= howto.next %></div>
+        <div class="bubble you"><%= howto.download %></div>
+        <div class="bubble me"><%= howto.error %></div>
+        <div class="bubble me"><%= howto.last %></div>
+    </div>
+</div>
+
+<div class="sunburst">
+    <div class="outer">
+        <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+    </div>
+</div>
+
+</body>
+</html>

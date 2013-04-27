@@ -5,6 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , howto = require('./routes/howto')
   , http = require('http')
   , path = require('path');
 
@@ -28,6 +29,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/url/:url',routes.ParseThenShow);
+app.get('/howto',howto.show);
 app.get('/test', function(req,res){
     res.sendfile(__dirname + '/public/test/testall.html');
 });

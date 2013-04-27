@@ -199,6 +199,7 @@ function Tools (historySupport) {
             }
         }
     }
+
     /**
      * save the image from Canvas
      * @param aCanvas the Canvas
