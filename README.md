@@ -35,7 +35,10 @@ It has a search interface where you can enter a keyword.
 The side bar is where photo’s that match the keyword appears. 
 Then Click the photo showing its larger size (if it has) in the content portion.
 
-You can edit the photo, e.g. Paint on the image, Flip the image, undo/redo if doing it wrong. It also present a user with a way to download the edited photo. 
+You can edit the photo, e.g. Paint on the image, Flip the image, undo/redo if doing it wrong. 
+It also present a user with a way to download the edited photo. 
+
+PLEASE NOTE: that Flip, undo/redo might have ___deley___, it might depend on the server's reaction or your browser's performance.
 
 The implementation is done in client side HTML/CSS/JS, except for the downloading part. 
 This is because of the Cross-Domain policy (check out __why server?__ section). It only runs (tested) on the latest Chrome, currently. 
