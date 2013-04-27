@@ -7,7 +7,8 @@ define(['../javascripts/Constant.js',
         '../javascripts/photo.js',
         '../javascripts/DOM.js',
         '../javascripts/tools.js',
-        '../javascripts/loader.js'],function(CONSTANT,Photo,DOM,Tools,Loader){
+        '../javascripts/loader.js',
+        '../javascripts/history.js'],function(CONSTANT,Photo,DOM,Tools,Loader,History){
     return Photos;
 });
 
@@ -94,7 +95,9 @@ function Photos(){
         function successCB_2(aCanvas,aContext,anImage){
             // tools listener
             var aDOM = new DOM();
-            var aTool = new Tools();
+            var theHistory = new History();
+            theHistory.saveHistory(aCanvas);
+            var aTool = new Tools(theHistory);
             var aPencil = null;
 
             var options = {
@@ -148,6 +151,13 @@ function Photos(){
                 aTool.canvasToImage(aCanvas);
             });
 
+            aDOM.redo().addEventListener('click',function(){
+                theHistory.redo(aContext);
+            });
+
+            aDOM.undo().addEventListener('click',function(){
+                theHistory.undo(aContext);
+            });
         }
 
         function errorCB(error){

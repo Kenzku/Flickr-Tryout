@@ -7,14 +7,18 @@ define(['../javascripts/Constant.js',
         '../javascripts/lib/canvas2image.js'],function(CONSTANT,Canvas2Image) {
     return Tools;
 });
-function Tools () {
+function Tools (historySupport) {
     var self = this;
+
+    self.history = historySupport ? historySupport : null;
     /**
      * flip the image
      * @param options {Object}
      * method : {String} either "horizontal" or "vertical"
      * context : the Context of the Canvas
      * image : the Image Element
+     * @param successCallback (Canvas, Context, Image)
+     * @param errorCallBack (error)
      */
     self.flip = function (options,successCallback, errorCallBack) {
         if (!options ||
@@ -22,6 +26,9 @@ function Tools () {
             !options.context||
             !options.image){
             return;
+        }
+        if (self.history) {
+            self.history.saveHistory(options.canvas);
         }
         var aMethod = options.method ? options.method : 'horizontal';
         var aCanvas = options.canvas;
@@ -109,6 +116,9 @@ function Tools () {
 
         _self.aCanvas.onmouseup = function(e){
             _self.painting = false;
+            if (self.history) {
+                self.history.saveHistory(options.canvas);
+            }
         }
 
         _self.aCanvas.onmousemove = function(e) {

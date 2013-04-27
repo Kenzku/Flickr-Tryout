@@ -24,12 +24,28 @@ define(['../../javascripts/tools.js'],function(Tools){
                     var aTools = new Tools();
                     var options = {
                         method : 'horizontal',
+                        canvas : aCanvas,
                         context : aContext,
                         image : anImage
                     }
-                    aTools.flip(options);
-                    ok(true);
-                    start();
+//                    aContext.save();
+                    aTools.flip(options,successCB,errorCB);
+
+//                    var pixelData_10_10_before = aContext.getImageData(10, 10, 1, 1).data;
+
+                    function successCB(aCanvas,aContext,newImage){
+//                        aContext.restore();
+//                        var pixelData_10_10_after = aContext.getImageData(anImage.width - 10, 10, 1, 1).data;
+//                        deepEqual(pixelData_10_10_before,pixelData_10_10_after);
+                        ok(true);
+                        start();
+                    }
+
+                    function errorCB(error){
+                        ok(false,error);
+                        start();
+                    }
+
                 }
                 anImage.onerror = function (e){
                     console.log(e);
@@ -55,12 +71,26 @@ define(['../../javascripts/tools.js'],function(Tools){
                     var aTools = new Tools();
                     var options = {
                         method : 'vertical',
+                        canvas : aCanvas,
                         context : aContext,
                         image : anImage
                     }
-                    aTools.flip(options);
-                    ok(true);
-                    start();
+//                    aContext.save();
+                    aTools.flip(options,successCB,errorCB);
+
+                    var pixelData_10_10_before = aContext.getImageData(10, 10, 1, 1).data;
+                    function successCB(aCanvas,aContext,newImage){
+//                        aContext.restore();
+//                        var pixelData_10_10_after = aContext.getImageData(10, newImage.height-10, 1, 1).data;
+//                        deepEqual(pixelData_10_10_before,pixelData_10_10_after);
+                        ok(true)
+                        start();
+                    }
+
+                    function errorCB(error){
+                        ok(false,error);
+                        start();
+                    }
                 }
                 anImage.onerror = function (e){
                     console.log(e);
