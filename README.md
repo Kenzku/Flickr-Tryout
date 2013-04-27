@@ -4,7 +4,7 @@ Flickr-Tryout
 ## What is it?
 I made this Flickr tryout and recorded it as a video. It is a web application and you can use it to search photos from 
 Flickr. You can also do some simple modification such as drawing and flipping or undo/redo. 
-Finland, you can download the edited photo. 
+Finally, you can download the edited photo. 
 
 Please check it on the video: ```http://www.youtube.com/watch?v=1qQscuM4oJw```
 
