@@ -75,7 +75,7 @@ The server is basically used to generate the page by `EJS` template and routing.
 
 ## Others
 
-I `Requirejs` style on the Client side to host my library, as well as I used to use it on `Node`. 
+I use `Requirejs` style on the Client side to host my library as that I used to use on `Node`. 
 You do not have to download it, it will download automatically from cloud delivery network.
 If there is any thing that doesn't look good, please leave me an issue, we can disscuss it!
 
