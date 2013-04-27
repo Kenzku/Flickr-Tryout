@@ -12,7 +12,8 @@ require.config({
         'domTest' : '/test/javascripts/domTest',
         'indexTest' : '/test/javascripts/indexTest',
         'photoTest' : '/test/javascripts/photoTest',
-        'toolsTest' : '/test/javascripts/toolsTest'
+        'toolsTest' : '/test/javascripts/toolsTest',
+        'historyTest': '/test/javascripts/historyTest'
     }
 });
 QUnit.config.autostart = false;
@@ -23,8 +24,12 @@ require(['loaderTest',
         'domTest',
         'indexTest',
         'photoTest',
-        'toolsTest'],
-    function (loaderTest,searchTest,photosTest,sidebarTest,domTest,indexTest,photoTest,toolsTest) {
+        'toolsTest',
+        'historyTest'],
+    function (loaderTest,searchTest,
+              photosTest,sidebarTest,
+              domTest,indexTest,
+              photoTest,toolsTest,historyTest) {
         QUnit.start();
         loaderTest.RunTests();
         searchTest.RunTests();
@@ -34,5 +39,6 @@ require(['loaderTest',
         indexTest.RunTests();
         photoTest.RunTests();
         toolsTest.RunTests();
+        historyTest.RunTests();
     }
 );

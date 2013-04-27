@@ -28,31 +28,57 @@ function History(){
         }
         self.history.push(aCanvas.toDataURL());
     }
-
-    self.undo = function (aContext) {
+    /**
+     * undo changes on the Canvas
+     * @param aContext the context of the current Canvas
+     * @param successCallback (newContext)
+     * newContext the Context of the Canvas after undo
+     * @param errorCallback (error)
+     */
+    self.undo = function (aContext,successCallback, errorCallback) {
         if (self.step > 0){
             self.step--;
             var anImage = document.createElement('img');
             anImage.src = self.history[self.step];
             anImage.onload = function (){
                 aContext.drawImage(anImage,0,0);
+                if (successCallback && typeof successCallback == 'function'){
+                    successCallback(aContext);
+                }
             }
             anImage.onerror = function (e){
-                console.log(e);
+                if(errorCallback && typeof errorCallback == 'function'){
+                    errorCallback(e);
+                }else{
+                    throw e;
+                }
             }
         }
     }
-
-    self.redo = function (aContext) {
+    /**
+     * redo changes on the Canvas
+     * @param aContext the context of the current Canvas
+     * @param successCallback (newContext)
+     * newContext the Context of the Canvas after undo
+     * @param errorCallback (error)
+     */
+    self.redo = function (aContext,successCallback, errorCallback) {
         if (self.step < self.history.length - 1){
             self.step++;
             var anImage = document.createElement('img');
             anImage.src = self.history[self.step];
             anImage.onload = function () {
                 aContext.drawImage(anImage,0,0);
+                if (successCallback && typeof successCallback == 'function'){
+                    successCallback(aContext);
+                }
             }
             anImage.onerror = function (e){
-                console.log(e);
+                if(errorCallback && typeof errorCallback == 'function'){
+                    errorCallback(e);
+                }else{
+                    throw e;
+                }
             }
         }
     }
