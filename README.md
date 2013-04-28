@@ -42,7 +42,7 @@ It also present a user with a way to download the edited photo.
 PLEASE NOTE: that Flip, undo/redo might have ___deley___, it might depend on the server's reaction or your browser's performance.
 
 The implementation is done in client side HTML/CSS/JS, except for the downloading part. 
-This is because of the Cross-Domain policy (check out __why server?__ section). It only runs (tested) on the latest Chrome, currently. 
+This is because of the Cross-Domain policy (check out __why server?__ section). It only runs (tested) on the latest Chrome and firefox, currently. 
 
 I did not use full blown library like jQuery, Backbone or Angular, but I used a small library to e.g. handle JSONP.
 
