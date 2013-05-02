@@ -7,8 +7,8 @@
 <body>
 <div id="qunit"></div>
 <div id="qunit-fixture">
-    <div id="sidebar">
-        <div id="controlPenal">
+    <aside id="sidebar">
+        <nav id="controlPenal">
             <a href="/howto">
                 <div id="howTo">
                     <i class="icon-question-sign"></i>
@@ -21,15 +21,38 @@
                 <i class="icon-arrow-left"></i>
             </div>
             <div id="loading"><i class="icon-spinner icon-spin icon pull-left"> </i></div>
-        </div>
-        <div id="thumbnail">
+        </nav>
+        <div id="search"><input placeholder="Search"></div>
+        <figure id="thumbnail">
             <ul>
             </ul>
-        </div>
-    </div>
-    <div id="content" class="content">
-        <div id="imageZone"></div>
-    </div>
+        </figure>
+    </aside>
+
+    <section id="content" class="content">
+        <figure id="imageZone"></figure>
+        <section id="tools">
+            <div id="pencil" class="tool"><i class="icon-pencil"></i></div>
+            <div id="flipHorizontal" class="tool"><i class="icon-resize-horizontal"></i></div>
+            <div id="flipVertical" class="tool"><i class="icon-resize-vertical"></i></div>
+            <div id="undo" class="tool"><i class="icon-reply"></i></div>
+            <div id="redo" class="tool"><i class="icon-share-alt"></i></div>
+            <!--<div id="saturation" class="tool"><i class="icon-filter"></i></div>-->
+            <div id="download" class="tool"><i class="icon-cloud-download"></i></div>
+        </section>
+        <!--<div id="strength">-->
+        <!--<input id='dimmer' type='range' min='0' max='100' step='1' value='15'>-->
+        <!--</div>-->
+        <section id="colour">
+            <div id="red" class="tool"><i class="icon-circle" data-colour="#FF0000"></i></div>
+            <div id="yellow" class="tool"><i class="icon-circle" data-colour="#FFFF00"></i></div>
+            <div id="green" class="tool"><i class="icon-circle" data-colour="#98FB98"></i></div>
+            <div id="blue" class="tool"><i class="icon-circle" data-colour="#6495ED"></i></div>
+            <div id="purple" class="tool"><i class="icon-circle" data-colour="#9370DB"></i></div>
+            <div id="white" class="tool"><i class="icon-circle" data-colour="#FFFFFF"></i></div>
+            <div id="black" class="tool"><i class="icon-circle" data-colour="#000000"></i></div>
+        </section>
+    </section>
 </div>
 
 <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>

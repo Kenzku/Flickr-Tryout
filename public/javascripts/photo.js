@@ -26,7 +26,7 @@ function Photo() {
      */
     self.addToCanvas = function (imgURL, successCallback, errorCallback){
         var anImage = new Image();
-        anImage.src = imgURL;
+        anImage.src = imgURL + '?noCache="' + Math.floor(Math.random() * 10000)+ '"';
 
         anImage.onload = function () {
             var aDOM = new DOM();
