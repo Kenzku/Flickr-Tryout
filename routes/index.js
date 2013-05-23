@@ -2,7 +2,7 @@
 /*
  * GET home page.
  */
-var ImageDealer = require('../lib/ImageDealer');
+var ImageDealer = require('../lib/imageDealer');
 
 exports.index = function (req, res) {
     "use strict";
