@@ -22,7 +22,7 @@ define(function () {
             if (nodes instanceof HTMLElement) { // because HTML Element is on nodes' prototype chain
                 // on Node
                 nodeToAppend.appendChild(nodes);
-            } else if (nodes.constructor && nodes.constructor === Array){
+            } else if (nodes.constructor && nodes.constructor === Array) {
                 // Array of Nodes, but not yet HTMLCollection
                 for (i = 0; i < nodes.length; i += 1) {
                     nodeToAppend.appendChild(nodes[i]);
