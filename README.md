@@ -7,6 +7,7 @@ Flickr. You can also do some simple modification such as drawing and flipping or
 Finally, you can download the edited photo. 
 
 Please check it on the video: ```http://www.youtube.com/watch?v=1qQscuM4oJw```
+You can also check out the live demo: ```http://flickr-tryout.herokuapp.com/```
 
 ## Build the app
 
