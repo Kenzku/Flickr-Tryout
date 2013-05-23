@@ -4,7 +4,7 @@
  * Time: 21:29
  */
 /*global define, asyncTest, equal, HTMLImageElement, start, ok*/
-define(['../../javascripts/index',
+define(['../../javascripts/Index',
         '../../javascripts/Constant'],
     function (IndexPage, CONSTANT) {
         "use strict";

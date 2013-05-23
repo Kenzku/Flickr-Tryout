@@ -5,7 +5,7 @@
  */
 require.config({
     paths: {
-        'indexPage' : '../../javascripts/index'
+        'indexPage' : '../../javascripts/Index'
     }
 });
 require(['indexPage'], function (IndexPage) {

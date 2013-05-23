@@ -6,7 +6,7 @@
 /*global suite, test, equal*/
 var assert = require("assert"),
     fs = require('fs'),
-    ImageDealer = require('../lib/imageDealer'),
+    ImageDealer = require('../lib/ImageDealer'),
     CONSTANT = require('../lib/Constant'),
     path = require('path');
 
