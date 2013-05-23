@@ -8,7 +8,8 @@ require.config({
         'indexPage' : '../../javascripts/index'
     }
 });
-require(['indexPage'],function(IndexPage){
+require(['indexPage'], function (IndexPage) {
+    "use strict";
     var aIndexPage = new IndexPage();
     aIndexPage.init();
 });

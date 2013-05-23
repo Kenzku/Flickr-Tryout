@@ -3,8 +3,10 @@
  * Date: 22/04/2013
  * Time: 13:54
  */
-define(function(){
-    return CONSTANT = {
+/*global define*/
+define(function () {
+    "use strict";
+    return {
         ERROR : {
             LOAD_DATA : {
                 LACK_OPTION : 'no option',
@@ -24,9 +26,9 @@ define(function(){
         },
         FLICKR : {
             SEARCH_PHOTO : 'http://api.flickr.com/services/rest/',
-            METHOD:'flickr.photos.search',
-            PER_PAGE:'5',
-            FORMAT:'json',
+            METHOD: 'flickr.photos.search',
+            PER_PAGE: '5',
+            FORMAT: 'json',
             KEY : '91ddbec77138c1df09d74c15f6236652',
             PAGE : 1,
             MEDIUM_SIZE : '_m.jpg',
@@ -44,7 +46,7 @@ define(function(){
         },
         OTHER : {
             // match URL for testing purpose
-            URL : /http[s]?:\/\/([a-z|0-9]+[\\.])+[a-z|0-9]{2,9}([/|a-z|0-9-*.*?_=%&])*/gmi
+            URL : /http[s]?:\/\/([a-z|0-9]+[\\.])+[a-z|0-9]{2,9}([\/|a-z|0-9-*.*?_=%&])*/gmi
         }
-    }
+    };
 });

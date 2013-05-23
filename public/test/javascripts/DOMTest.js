@@ -3,48 +3,59 @@
  * Date: 23/04/2013
  * Time: 23:10
  */
-define(['../../javascripts/DOM'],function(DOM){
+/*global define, test, equal*/
+define(['../../javascripts/DOM'], function (DOM) {
+    "use strict";
     return {
         RunTests : function () {
             module('DOM helper function');
-            test('append - one element - then remove the child',function(){
-                var aCanvas = document.createElement('canvas');
-                aCanvas.width= 100;
+            test('append - one element - then remove the child', function () {
+                var aCanvas = document.createElement('canvas'),
+                    sidebar,
+                    sidebarList,
+                    aDOM;
+                aCanvas.width = 100;
                 aCanvas.height = 100;
 
-                var sidebar = document.getElementById('thumbnail');
-                var sidebarList = sidebar.children[0];
+                sidebar = document.getElementById('thumbnail');
+                sidebarList = sidebar.children[0];
 
-                var aDOM = new DOM();
-                aDOM.append(sidebarList,aCanvas);
+                aDOM = new DOM();
+                aDOM.append(sidebarList, aCanvas);
 
-                equal(sidebarList.childElementCount,1);
+                equal(sidebarList.childElementCount, 1);
 
                 aDOM.removeChildren(sidebarList);
-                equal(sidebarList.childElementCount,0);
+                equal(sidebarList.childElementCount, 0);
             });
 
-            test('append - some elements - then remove the children',function(){
-                var nodes = [];
-                var testLength = 10;
-                var sidebar = document.getElementById('thumbnail');
-                var sidebarList = sidebar.children[0];
+            test('append - some elements - then remove the children', function () {
+                var i,
+                    nodes = [],
+                    testLength,
+                    sidebar,
+                    sidebarList,
+                    aCanvas,
+                    aDOM;
+                testLength = 10;
+                sidebar = document.getElementById('thumbnail');
+                sidebarList = sidebar.children[0];
 
                 // add elements
-                for (var i = 0 ; i < testLength ; i ++){
-                    var aCanvas = document.createElement('canvas');
-                    aCanvas.setAttribute('id', 'aCanvas' + i );
+                for (i = 0; i < testLength; i += 1) {
+                    aCanvas = document.createElement('canvas');
+                    aCanvas.setAttribute('id', 'aCanvas' + i);
 
                     nodes.push(aCanvas);
                 }
 
-                var aDOM = new DOM();
-                aDOM.append(sidebarList,nodes);
+                aDOM = new DOM();
+                aDOM.append(sidebarList, nodes);
 
-                equal(sidebarList.childElementCount,testLength);
+                equal(sidebarList.childElementCount, testLength);
                 aDOM.removeChildren(sidebarList);
-                equal(sidebarList.childElementCount,0);
+                equal(sidebarList.childElementCount, 0);
             });
         }
-    }
-})
+    };
+});
