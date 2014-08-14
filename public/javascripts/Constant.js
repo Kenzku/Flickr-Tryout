@@ -25,11 +25,11 @@ define(function () {
             }
         },
         FLICKR : {
-            SEARCH_PHOTO : 'http://api.flickr.com/services/rest/',
+            SEARCH_PHOTO : 'https://api.flickr.com/services/rest/',
             METHOD: 'flickr.photos.search',
             PER_PAGE: '5',
             FORMAT: 'json',
-            KEY : '91ddbec77138c1df09d74c15f6236652',
+            KEY : '870f146ecd203e95470885fb2ce29af8',
             PAGE : 1,
             MEDIUM_SIZE : '_m.jpg',
             LARGE_SIZE : '_c.jpg'
