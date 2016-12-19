@@ -24,7 +24,7 @@ if you haven't install node, please visit: ```http://nodejs.org```
 ## Testing
 The test is done by Qunit: ```http://qunitjs.com``` on client side, and 
 
-Mocha: ```http://visionmedia.github.io/mocha/``` on server.
+Mocha: ```http://mochajs.org/``` on server.
 
 To run the test on Client side, please firstly build the app, and run the server: ```node app.js```
 then go to ```http://localhost:3000/test```
